@@ -78,7 +78,9 @@ char menuSelect() {
         // Blank line
         cout << endl;
         // Prompt
-        cout << "Enter [E] to convert English to Metric, [M] to convert Metric to English, or [Q] to quit: ";
+        cout << "Enter [E] to convert English to Metric," << endl;
+        cout << "Enter [M] to convert Metric to English," << endl;
+        cout << "Enter [Q] to quit: ";
         // Read input
         cin >> selection;
         // Convert to uppercase
@@ -165,12 +167,13 @@ bool isNumber(double input) {
         cin.ignore(10000, '\n');
         return false;
     }   // End of data mismatch
+    // Negative numbers
     else if (input < 0) {
         cout << "Input must be positive, please try again." << endl;
         cout << endl; cin.clear();
         cin.ignore(10000, '\n');
         return false;
-    }
+    }   // End of negative numbers
     else;
     return true;
 }   // End of isNumber
