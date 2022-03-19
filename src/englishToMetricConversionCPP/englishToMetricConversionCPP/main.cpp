@@ -11,6 +11,8 @@
 #include <iostream>
 // toUpper function
 #include <cctype>
+// 2 places past decimal
+#include <iomanip>
 // Function prototypes
 char menuSelect();
 void englishConvert();
@@ -27,21 +29,43 @@ int main(int argc, const char * argv[]) {
     // Local variables
     char select;
     
+    // Welcome message
+    cout << "===========================================" << endl;
+    cout << "Welcome to the English to Metric Converter!" << endl;
+    cout << "===========================================" << endl;
+    
     // Loop program until user quits
     do {
         // Call menuSelect
         select = menuSelect();
         // If E selected, convert from English to Metric
         if (select == 'E') {
+            // Let user know they're converting english
+            cout << endl;
+            cout << "============================" << endl;
+            cout << "Converting English to Metric" << endl;
+            cout << "============================" << endl;
             // Call subroutine
             englishConvert();
         }   // End of E selected
         // If M selected, convert from Metric to English
         else if (select == 'M') {
+            // Let user know they're converting metric
+            cout << endl;
+            cout << "============================" << endl;
+            cout << "Converting Metric to English" << endl;
+            cout << "============================" << endl;
             // Call subroutine
             metricConvert();
-        }
+        }   // End of M selected
+        else;  // Q is selected if we make it this far
     } while (select != 'Q');
+    
+    // Closing message
+    cout << endl;
+    cout << "====================================================" << endl;
+    cout << "Thank you for using the English to Metric Converter!" << endl;
+    cout << "====================================================" << endl;
     return 0;
 }   // End Main
 
@@ -59,6 +83,10 @@ char menuSelect() {
         cin >> selection;
         // Convert to uppercase
         selection = toupper(selection);
+        // Error prompt
+        if (selection != 'E' && selection != 'M' && selection != 'Q') {
+            cout << "Please enter a valid selection." << endl;
+        }
         // Repeat loop until E, M, or Q selected
     } while (selection != 'E' && selection != 'M' && selection != 'Q');
     return selection;
@@ -88,6 +116,9 @@ void englishConvert() {
             // Compute Inches to centimeters
             centimeters = inches * CONVERSION_RATE;
             // Print results
+            // Sets decimal two places
+            cout << setiosflags(ios::fixed | ios::showpoint);
+            cout << setprecision(2);
             cout << inches << " inches is equal to " << centimeters << " centimeters." << endl;
         }   // End of else
     } while (!isValid);   // Repeat until valid input
@@ -117,6 +148,9 @@ void metricConvert() {
             // Compute Inches to centimeters
             inches = centimeters / CONVERSION_RATE;
             // Print results
+            // Sets decimal two places
+            cout << setiosflags(ios::fixed | ios::showpoint);
+            cout << setprecision(2);
             cout << centimeters << " centimeters is equal to " << inches << " inches." << endl;
         }   // End of else
     } while (!isValid);   // Repeat until valid input
