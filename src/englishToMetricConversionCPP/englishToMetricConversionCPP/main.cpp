@@ -118,7 +118,7 @@ void englishConvert() {
             // Print results
             // Sets decimal two places
             cout << setiosflags(ios::fixed | ios::showpoint);
-            cout << setprecision(2);
+            cout << setprecision(1);
             cout << inches << " inches is equal to " << centimeters << " centimeters." << endl;
         }   // End of else
     } while (!isValid);   // Repeat until valid input
@@ -150,7 +150,7 @@ void metricConvert() {
             // Print results
             // Sets decimal two places
             cout << setiosflags(ios::fixed | ios::showpoint);
-            cout << setprecision(2);
+            cout << setprecision(1);
             cout << centimeters << " centimeters is equal to " << inches << " inches." << endl;
         }   // End of else
     } while (!isValid);   // Repeat until valid input
