@@ -11,9 +11,10 @@
 #include <iostream>
 // toUpper function
 #include <cctype>
-// Function prototype
+// Function prototypes
 char menuSelect();
 void englishConvert();
+void metricConvert();
 bool isNumber(double input);
 // std namespace
 using namespace std;
@@ -32,9 +33,14 @@ int main(int argc, const char * argv[]) {
         select = menuSelect();
         // If E selected, convert from English to Metric
         if (select == 'E') {
-            // Prompt for input
+            // Call subroutine
             englishConvert();
         }   // End of E selected
+        // If M selected, convert from Metric to English
+        else if (select == 'M') {
+            // Call subroutine
+            metricConvert();
+        }
     } while (select != 'Q');
     return 0;
 }   // End Main
@@ -86,6 +92,35 @@ void englishConvert() {
         }   // End of else
     } while (!isValid);   // Repeat until valid input
 }  // End of englishConvert
+
+// Start of metricConvert
+void metricConvert() {
+    // Local Variables
+    double inches;
+    double centimeters;
+    bool isValid;
+    // Do..while loop to loop for valid input
+    do {
+        // Assume good input
+        isValid = true;
+        // Prompt for input
+        cout << "Enter the number of centimeters: ";
+        // Read input
+        cin >> centimeters;
+        // Check if input is numeric
+        isValid = isNumber(centimeters);
+        // If not numeric
+        if (!isValid)
+            continue;
+        // If input valid
+        else {
+            // Compute Inches to centimeters
+            inches = centimeters / CONVERSION_RATE;
+            // Print results
+            cout << centimeters << " centimeters is equal to " << inches << " inches." << endl;
+        }   // End of else
+    } while (!isValid);   // Repeat until valid input
+}   // End of metricConvert
 
 // Start of isNumber
 bool isNumber(double input) {
