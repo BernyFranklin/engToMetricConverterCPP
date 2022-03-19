@@ -2,7 +2,7 @@
  * englishToMetricConversionCPP Version1.0
  * Frank Bernal
  * CIS 054 C/C++ Programming
- * Input: Desired Unit, Input measurement
+ * Input: Menu Selection, Inches, Centimeters
  * Output: Conversion Inches <=> Centimeters
  * 18 Mar 2022
  */
